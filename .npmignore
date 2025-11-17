@@ -1,0 +1,6 @@
+# Include only dist/, src/ package.json, readme.md
+*
+!dist/**
+!src/**
+!package.json
+!README.md
