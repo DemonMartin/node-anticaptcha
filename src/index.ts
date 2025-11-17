@@ -748,7 +748,10 @@ export class AntiCaptcha {
      */
     constructor(clientKey: string, options: AntiCaptchaOptions = {}) {
         this.#clientKey = clientKey;
-        this.#options = options;
+        this.#options = {
+            ...options,
+            softId: options.softId ?? 1267,
+        };
         this.#delay = options.delay ?? 2000;
         this.#client = axios.create({
             baseURL: options.apiUrl ?? 'https://api.anti-captcha.com',
@@ -820,10 +823,8 @@ export class AntiCaptcha {
         const payload: Record<string, unknown> = {
             clientKey: this.#clientKey,
             task,
+            softId: this.#options.softId,
         };
-        if (this.#options.softId) {
-            payload.softId = this.#options.softId;
-        }
         const finalCallbackUrl = callbackUrl ?? this.#options.callbackUrl;
         if (finalCallbackUrl) {
             payload.callbackUrl = finalCallbackUrl;
