@@ -1,5 +1,7 @@
 # node-anticaptcha
 
+Get API Key at [anti-captcha.com](https://getcaptchasolution.com/tnyquleutu)
+
 Modern Node.js library for the Anti-Captcha.com API. Clean, typed, and easy to use.
 
 ## Installation
